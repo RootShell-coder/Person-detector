@@ -43,4 +43,4 @@ for file in $(find ${photo_dir} -type f -name "*.jpg"); do
 done
 ```
 
-In response, we get a JSON that can already be partically and sort photos
+In response, we receive a JSON that can already be partially used to sort photos
