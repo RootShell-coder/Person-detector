@@ -10,7 +10,7 @@ docker compose
 ---
 services:
   coco2:
-    image: "person-detector"
+    image: "ghcr.io/rootshell-coder/person-detector:latest"
     runtime: "nvidia-runc"
     ports:
       - "5000:5000"
@@ -29,6 +29,8 @@ networks:
   pd-net:
     name: "pd-net"
 ```
+
+Remove runtime: `runtime: "nvidia-runc"` if you do not know what is it or not CUDA support in the system.
 
 Check my wedding photo directory and select all where a person is present.
 

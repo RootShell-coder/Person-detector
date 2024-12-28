@@ -1,0 +1,21 @@
+---
+services:
+  coco2:
+    image: "ghcr.io/rootshell-coder/person-detector:latest"
+    runtime: "nvidia-runc"
+    ports:
+      - "5000:5000"
+    networks:
+      - "pd-net"
+    restart: "always"
+    deploy:
+      resources:
+        limits:
+          cpus: "6.0"
+          memory: "2G"
+        reservations:
+          cpus: "1.0"
+          memory: "2G"
+networks:
+  pd-net:
+    name: "pd-net"

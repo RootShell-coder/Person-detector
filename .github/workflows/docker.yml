@@ -1,4 +1,4 @@
-name: Build and check image
+name: Build
 on:
   push:
     branches: ["master"]
@@ -44,16 +44,11 @@ jobs:
 
   check:
     needs: [build]
-    name: Pull image
+    name: Check Trivy
     runs-on: [ubuntu-24.04]
     steps:
       - uses: actions/checkout@v4
-      - name: Create report file
-        run: |
-          echo "BUILD TIME" > ${{ env.VER_LOG }}
-          date +%s >> ${{ env.VER_LOG }}
-          echo "---" >> ${{ env.VER_LOG }}
-      - name: Check
+      - name: Check Trivy
         run: |
           docker pull ${{ env.LATEST_TAG }}
           docker run --rm ghcr.io/rootshell-coder/trivy-cached:latest image ${{ env.LATEST_TAG }} --skip-db-update > ${{ env.TRIVY_SECURITY }}
