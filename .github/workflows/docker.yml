@@ -3,11 +3,13 @@ on:
   push:
     branches: ["master"]
     paths:
+      - "docker-compose.yml"
       - "docker/**"
       - ".github/workflows/**"
   pull_request:
     branches: ["master"]
     paths:
+      - "docker-compose.yml"
       - "docker/**"
       - ".github/workflows/**"
 
