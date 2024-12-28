@@ -9,7 +9,7 @@ docker compose
 ```yml
 ---
 services:
-  coco2:
+  resnet:
     image: "ghcr.io/rootshell-coder/person-detector:latest"
     runtime: "nvidia-runc"
     ports:
